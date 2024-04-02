@@ -17,7 +17,7 @@ const EditPopUp = ({open, handleClose, title, setTitle}) => {
     useEffect(() => {
         const getThisBook = async () => {
             try {
-                const temp = await axios.get(`http://localhost:8080/ReadBook-${title}`);
+                const temp = await axios.get(`${'http://192.168.245.1:8080'}/ReadBook-${title}`);
                 setBookData(temp?.data?.data);
             } catch (e) {
                 toast.error("Failed to Read Book!", {position: "top-center", autoClose: 1125});
@@ -29,7 +29,7 @@ const EditPopUp = ({open, handleClose, title, setTitle}) => {
     const EditBook = async () => {
         try {
             let temp = JSON.stringify({Title: bookData?.Title, Author: bookData?.Author, Year: bookData?.Year, Content: bookData?.Content})
-            await axios.patch(`http://localhost:8080/UpdateBook-${title}`, temp);
+            await axios.patch(`${'http://192.168.245.1:8080'}/UpdateBook-${title}`, temp);
             toast.success(`${title} Edited Successfully!`, {position: "top-center", autoClose: 1125});
             setTitle(null);
             setConfirmEdit(false);

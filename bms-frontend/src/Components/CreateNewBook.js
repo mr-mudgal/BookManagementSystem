@@ -21,7 +21,7 @@ const CreateBookForm = () => {
                 Year: year,
                 Content: content
             })
-            await axios.post('http://localhost:8080/CreateBook', data)
+            await axios.post(`${'http://192.168.245.1:8080'}/CreateBook`, data)
             setCreatePop(false);
             setBookTitle('');
             setAuthor('');

@@ -6,8 +6,6 @@ import ConfirmationDialog from "./DeletePopUp";
 import {toast} from "react-toastify";
 import EditPopUp from "./EditPopUp";
 
-const API_URL = process.env.API_URL
-
 const DisplayAllBooks = () => {
     const [allBookList, setAllBookList] = useState(null);
     const [deletePop, setDeletePop] = useState(false);
@@ -75,7 +73,7 @@ const DisplayAllBooks = () => {
     useEffect(() => {
         try {
             const getAllBooks = async () => {
-                const allBookListTemp = await axios.get(`${API_URL}/ReadAllBooks`);
+                const allBookListTemp = await axios.get(`${'http://192.168.245.1:8080'}/ReadAllBooks`);
                 const newData = allBookListTemp?.data?.data?.map((item, index) => {
                     return {...item, id: index + 1};
                 });
@@ -89,7 +87,7 @@ const DisplayAllBooks = () => {
 
     const DeleteBook = async () => {
         try {
-            await axios.delete(`http://localhost:8080/DeleteBook-${selectedBook}`);
+            await axios.delete(`${'http://192.168.245.1:8080'}/DeleteBook-${selectedBook}`);
             toast.success(`${selectedBook} Deleted Successfully!`, {position: "top-center", autoClose: 1125});
             setDeletePop(false);
             setSelectedBook(null);

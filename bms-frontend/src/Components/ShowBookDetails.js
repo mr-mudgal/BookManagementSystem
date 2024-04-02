@@ -15,7 +15,7 @@ const ShowBookDetails = ({open, handleClose, title}) => {
     useEffect(() => {
         const getThisBook = async () => {
             try {
-                const temp = await axios.get(`http://localhost:8080/ReadBook-${title}`);
+                const temp = await axios.get(`${'http://192.168.245.1:8080'}/ReadBook-${title}`);
                 setBookData(temp?.data?.data);
             } catch (e) {
                 toast.error("Failed to Read Book!", {position: "top-center", autoClose: 1125});

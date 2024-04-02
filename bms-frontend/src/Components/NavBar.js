@@ -15,7 +15,7 @@ const Navbar = ({toggle, navItemList}) => {
     useEffect(() => {
         const getAllBooks = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/ReadAllBooks`);
+                const response = await axios.get(`${'http://192.168.245.1:8080'}/ReadAllBooks`);
                 let temp = [];
                 response?.data?.data?.map((book) => temp.push(book.Title));
                 setAllBooks(temp);
