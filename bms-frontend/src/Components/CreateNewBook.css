@@ -1,0 +1,7 @@
+.css-1tr7b94-MuiInputBase-root-MuiOutlinedInput-root, .css-l92rdj-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 20px;
+}
+
+input[type="text" i]::placeholder {
+    color: white;
+}
