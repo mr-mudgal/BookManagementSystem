@@ -6,7 +6,7 @@ import ConfirmationDialog from "./DeletePopUp";
 import {toast} from "react-toastify";
 import EditPopUp from "./EditPopUp";
 
-const apiKey = process.env.API_URL
+const API_URL = process.env.API_URL
 
 const DisplayAllBooks = () => {
     const [allBookList, setAllBookList] = useState(null);
