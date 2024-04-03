@@ -58,6 +58,8 @@ const Navbar = ({toggle, navItemList}) => {
                         fill="#228b22"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        cursor={'pointer'}
+                        onClick={() => window.open("https://github.com/mr-mudgal")}
                     >
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path

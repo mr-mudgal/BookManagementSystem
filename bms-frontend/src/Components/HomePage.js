@@ -3,22 +3,37 @@ import {Card, CardContent, CardMedia, Container, Grid, Typography} from '@mui/ma
 
 import BookImage from "../Public/book-and-glasses-svgrepo-com.svg"
 
-const sections = [{
-    title: 'Welcome to the Book Management System',
-    paragraph: 'This comprehensive system allows you to manage your book collection with ease. Add, edit, and delete books, categorize them, and track their availability.',
-}, {
-    title: 'Seamless Organization',
-    paragraph: 'Create custom categories to organize your books by genre, author, publication date, or any other criteria that suits your needs. Find the books you need quickly and effortlessly.',
-}, {
-    title: 'Intuitive Interface', paragraph: 'The user-friendly interface makes managing your books a breeze. Navigate easily using the clear design and intuitive controls.',
-}, {
-    title: 'Advanced Search',
-    paragraph: 'Utilize powerful search features to locate specific books by title, author, keyword, or any other relevant attribute. Find the exact book you’re looking for in seconds.',
-}, {
-    title: 'Always Accessible', paragraph: '(Optional: Add functionality details here, e.g., "Access your book collection from any device, anywhere, anytime.")',
-}, {
-    title: 'Get Started Today!', paragraph: 'Create your free account and discover the power of a well-organized book collection. Start your journey towards better book management now!',
-},];
+const sections = [
+    {
+        title: 'Welcome to the Book Management System',
+        paragraph: 'This comprehensive system allows you to manage your book collection with ease. Add, Edit, Delete, Search are the some functionality it provides.',
+    },
+    {
+        title: 'How to Add Book?',
+        paragraph: 'To Add a New Book go the Create New Book tab in the navigation menu, if you are using mobile then click on the three lines at top-right and then click Create New Book' +
+            ' button. It will ask for details like Title, Author, Year and Content of the book. Note: Title of the book is unique. All fields are required through front-end validation.',
+    },
+    {
+        title: 'How to see All Books?',
+        paragraph: 'To see All Books go the All Books tab in the navigation menu, if you are using mobile then click on the three lines at top-right and then click All Books button. This will open' +
+            ' a new page where you can see a table listing all the books present. This table has sorting / filtering functionality also, which can be found just above the table header.'
+    },
+    {
+        title: 'How to Edit a Book?',
+        paragraph: 'When you are on All Books page, there on the last column named Actions you will find a button named Edit. Click on that and new popup will appear. On this popup, it would have' +
+            ' prefilled book entries, change the entry you want and click submit. It will ask for confirmation before making the change, on clicking Confirm the book would be modified.',
+    },
+    {
+        title: 'How to Delete a Book?',
+        paragraph: 'When you are on All Books page, there on the last column named Actions you will find a button named Edit. It will ask confirmation before deletion, post confirmation the book' +
+            ' would be deleted.',
+    },
+    {
+        title: 'Have a Nice Day!',
+        paragraph: 'I hope you liked my small project built on React.JS. The backend for this project is built on Node.JS, Express.JS. I used MongoDB as my Database. You can check my other' +
+            ' interesting projects on my GitHub. To visit, click on the GitHub logo in the navigation bar at the top. Thank You, for exploring this project!',
+    }
+];
 
 const BMSHomePage = ({classes}) => {
     return (
