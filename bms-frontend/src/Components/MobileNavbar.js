@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SearchBox from "./SearchInput";
 import axios from "axios";
 import ShowBookPopUp from "./ShowBookDetails";
+// import "dotenv";
 
 const MobileMenu = ({openMobileMenu, setOpenMobileMenu, navItemList}) => {
     const [allBooks, setAllBooks] = useState(null);
@@ -14,7 +15,7 @@ const MobileMenu = ({openMobileMenu, setOpenMobileMenu, navItemList}) => {
     useEffect(() => {
         const getAllBooks = async () => {
             try {
-                const response = await axios.get(`${'http://192.168.245.1:8080'}/ReadAllBooks`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/ReadAllBooks`);
                 let temp = [];
                 response?.data?.data?.map((book) => temp.push(book.Title));
                 setAllBooks(temp);

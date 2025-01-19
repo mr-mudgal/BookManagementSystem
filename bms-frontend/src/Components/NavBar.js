@@ -6,6 +6,7 @@ import BMSLogo from "../Public/book-and-glasses-svgrepo-com.svg"
 import SearchBox from "./SearchInput";
 import ShowBookPopUp from "./ShowBookDetails";
 import axios from "axios";
+// import "dotenv";
 
 const Navbar = ({toggle, navItemList}) => {
     const [allBooks, setAllBooks] = useState(null);
@@ -15,7 +16,7 @@ const Navbar = ({toggle, navItemList}) => {
     useEffect(() => {
         const getAllBooks = async () => {
             try {
-                const response = await axios.get(`${'http://192.168.245.1:8080'}/ReadAllBooks`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/ReadAllBooks`);
                 let temp = [];
                 response?.data?.data?.map((book) => temp.push(book.Title));
                 setAllBooks(temp);

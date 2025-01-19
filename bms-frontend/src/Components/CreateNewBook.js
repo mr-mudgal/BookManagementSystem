@@ -4,6 +4,7 @@ import './CreateNewBook.css'
 import ConfirmationDialog from "./DeletePopUp";
 import {toast} from "react-toastify";
 import axios from "axios";
+// import "dotenv";
 
 const CreateBookForm = () => {
     const [bookTitle, setBookTitle] = useState(null);
@@ -21,7 +22,7 @@ const CreateBookForm = () => {
                 Year: year,
                 Content: content
             })
-            await axios.post(`${'http://192.168.245.1:8080'}/CreateBook`, data)
+            await axios.post(`${process.env.REACT_APP_API_URL}/CreateBook`, data)
             setCreatePop(false);
             setBookTitle('');
             setAuthor('');

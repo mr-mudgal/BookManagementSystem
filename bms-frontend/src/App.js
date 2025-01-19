@@ -2,7 +2,7 @@ import './App.css';
 import BMSHomePage from "./Components/HomePage";
 import DisplayAllBooks from "./Components/DisplayAllBooks";
 import CreateBookForm from "./Components/CreateNewBook";
-// import Error404 from "./Components/Error404";
+import Error404 from "./Components/Error404";
 import React, {useState} from "react";
 import MobileMenu from "./Components/MobileNavbar";
 import ResponsiveAppBar from "./Components/NavBar";
@@ -97,7 +97,8 @@ function App() {
                 <Routes>
                     <Route path={"/"} exact element={<BMSHomePage classes={classes}/>}/>
                     <Route path={"/read-all-books"} exact element={<DisplayAllBooks/>}/>
-                    <Route path={"/*"} exact element={<CreateBookForm/>}/>
+                    <Route path={"/create-new-book"} exact element={<CreateBookForm/>}/>
+                    <Route path={"/*"} exact element={<Error404/>}/>
                 </Routes>
             </Router>
         </ThemeProvider>

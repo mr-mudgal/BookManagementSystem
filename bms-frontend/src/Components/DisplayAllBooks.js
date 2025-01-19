@@ -5,6 +5,7 @@ import {Button} from "@mui/material";
 import ConfirmationDialog from "./DeletePopUp";
 import {toast} from "react-toastify";
 import EditPopUp from "./EditPopUp";
+// import "dotenv";
 
 const DisplayAllBooks = () => {
     const [allBookList, setAllBookList] = useState(null);
@@ -73,7 +74,7 @@ const DisplayAllBooks = () => {
     useEffect(() => {
         try {
             const getAllBooks = async () => {
-                const allBookListTemp = await axios.get(`${'http://192.168.245.1:8080'}/ReadAllBooks`);
+                const allBookListTemp = await axios.get(`${process.env.REACT_APP_API_URL}/ReadAllBooks`);
                 const newData = allBookListTemp?.data?.data?.map((item, index) => {
                     return {...item, id: index + 1};
                 });
@@ -87,7 +88,7 @@ const DisplayAllBooks = () => {
 
     const DeleteBook = async () => {
         try {
-            await axios.delete(`${'http://192.168.245.1:8080'}/DeleteBook-${selectedBook}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/DeleteBook-${selectedBook}`);
             toast.success(`${selectedBook} Deleted Successfully!`, {position: "top-center", autoClose: 1125});
             setDeletePop(false);
             setSelectedBook(null);

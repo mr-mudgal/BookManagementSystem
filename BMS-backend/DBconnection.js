@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const uri = "mongodb+srv://BMSuser:BMSuser%401@bmscluster1.qgosfiq.mongodb.net/BooksDB?retryWrites=true&w=majority&appName=bmsCluster1";
+require('dotenv').config();
+
+const uri = process.env.DB_URL;
 
 const clientOptions = {serverApi: {version: '1', strict: true, deprecationErrors: true}};
 

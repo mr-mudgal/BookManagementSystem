@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import ConfirmationDialog from "./DeletePopUp";
 import axios from "axios";
 import {toast} from "react-toastify";
+// import "dotenv";
 
 const EditPopUp = ({open, handleClose, title, setTitle}) => {
     const [bookData, setBookData] = useState(null);
@@ -17,7 +18,7 @@ const EditPopUp = ({open, handleClose, title, setTitle}) => {
     useEffect(() => {
         const getThisBook = async () => {
             try {
-                const temp = await axios.get(`${'http://192.168.245.1:8080'}/ReadBook-${title}`);
+                const temp = await axios.get(`${process.env.REACT_APP_API_URL}/ReadBook-${title}`);
                 setBookData(temp?.data?.data);
             } catch (e) {
                 toast.error("Failed to Read Book!", {position: "top-center", autoClose: 1125});
@@ -29,7 +30,7 @@ const EditPopUp = ({open, handleClose, title, setTitle}) => {
     const EditBook = async () => {
         try {
             let temp = JSON.stringify({Title: bookData?.Title, Author: bookData?.Author, Year: bookData?.Year, Content: bookData?.Content})
-            await axios.patch(`${'http://192.168.245.1:8080'}/UpdateBook-${title}`, temp);
+            await axios.patch(`${process.env.REACT_APP_API_URL}/UpdateBook-${title}`, temp);
             toast.success(`${title} Edited Successfully!`, {position: "top-center", autoClose: 1125});
             setTitle(null);
             setConfirmEdit(false);

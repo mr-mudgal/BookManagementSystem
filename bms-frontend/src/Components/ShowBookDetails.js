@@ -8,6 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from "axios";
 import {toast} from "react-toastify";
 import {Typography} from "@mui/material";
+// import "dotenv";
 
 const ShowBookDetails = ({open, handleClose, title}) => {
     const [bookData, setBookData] = useState(null);
@@ -15,7 +16,7 @@ const ShowBookDetails = ({open, handleClose, title}) => {
     useEffect(() => {
         const getThisBook = async () => {
             try {
-                const temp = await axios.get(`${'http://192.168.245.1:8080'}/ReadBook-${title}`);
+                const temp = await axios.get(`${process.env.REACT_APP_API_URL}/ReadBook-${title}`);
                 setBookData(temp?.data?.data);
             } catch (e) {
                 toast.error("Failed to Read Book!", {position: "top-center", autoClose: 1125});
